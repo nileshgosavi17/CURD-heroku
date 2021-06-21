@@ -17,9 +17,9 @@ app.use(bodyparser.json());
 app.set('views', path.join(__dirname, '/views/'));
 app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/' }));
 app.set('view engine', 'hbs');
-
+app.get("/",(req,res) => { res.json("working")});
+app.use('/employee', employeeController);
 app.listen(PORT, () => {
     console.log('Express server started at port : 3000');
 });
 
-app.use('/employee', employeeController);
